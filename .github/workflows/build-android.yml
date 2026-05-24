@@ -41,13 +41,11 @@ jobs:
 
       - name: Build debug APK
         run: |
-          flutter build apk --debug \
-            --dart-define=thingsboardApiEndpoint=https://thingsboard.cloud \
-            --dart-define=androidApplicationName=AgriPulse
+          flutter build apk --debug             --dart-define=thingsboardApiEndpoint=https://thingsboard.cloud             --dart-define=androidApplicationName=AgriPulse             --dart-define=androidApplicationId=ph.agripulse.davao             --dart-define=thingsboardOAuth2CallbackUrlScheme=ph.agripulse.davao.auth             --dart-define=appLinksUrlHost=thingsboard.cloud
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: agripulse-debug-apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          path: build/app/outputs/flutter-apk/AgriPulse-debug-1.0+1.apk
           retention-days: 30
