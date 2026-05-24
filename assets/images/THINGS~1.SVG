@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="currentColor">
+  <!-- AgriPulse banana tree mark (single-color silhouette, tinted by Flutter colorFilter) -->
+  <g transform="translate(40 48)">
+    <!-- trunk -->
+    <path d="M -4 -28 L 4 -28 L 6 22 L -6 22 Z"/>
+    <!-- leaves radiating from crown -->
+    <g transform="translate(0 -28)">
+      <g transform="rotate(165) scale(0.95)"><path d="M 0 0 C 2 -5 12 -10 30 -10 C 47 -10 58 -5 61 0 C 58 5 47 10 30 10 C 12 10 2 5 0 0 Z"/></g>
+      <g transform="rotate(140)"><path d="M 0 0 C 2 -5 12 -10 30 -10 C 47 -10 58 -5 61 0 C 58 5 47 10 30 10 C 12 10 2 5 0 0 Z"/></g>
+      <g transform="rotate(115) scale(0.9)"><path d="M 0 0 C 2 -5 12 -10 30 -10 C 47 -10 58 -5 61 0 C 58 5 47 10 30 10 C 12 10 2 5 0 0 Z"/></g>
+      <g transform="rotate(-90) scale(0.85)"><path d="M 0 0 C 2 -5 12 -10 30 -10 C 47 -10 58 -5 61 0 C 58 5 47 10 30 10 C 12 10 2 5 0 0 Z"/></g>
+      <g transform="rotate(-65) scale(0.92)"><path d="M 0 0 C 2 -5 12 -10 30 -10 C 47 -10 58 -5 61 0 C 58 5 47 10 30 10 C 12 10 2 5 0 0 Z"/></g>
+      <g transform="rotate(-40) scale(0.95)"><path d="M 0 0 C 2 -5 12 -10 30 -10 C 47 -10 58 -5 61 0 C 58 5 47 10 30 10 C 12 10 2 5 0 0 Z"/></g>
+      <g transform="rotate(-15)"><path d="M 0 0 C 2 -5 12 -10 30 -10 C 47 -10 58 -5 61 0 C 58 5 47 10 30 10 C 12 10 2 5 0 0 Z"/></g>
+      <g transform="rotate(15) scale(0.95)"><path d="M 0 0 C 2 -5 12 -10 30 -10 C 47 -10 58 -5 61 0 C 58 5 47 10 30 10 C 12 10 2 5 0 0 Z"/></g>
+    </g>
+  </g>
+</svg>
