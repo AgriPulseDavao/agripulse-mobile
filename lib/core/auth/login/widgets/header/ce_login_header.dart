@@ -10,13 +10,23 @@ class LoginHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.only( left: 12),
+      padding: const EdgeInsets.only(left: 12),
       child: Row(
         children: [
           SvgPicture.asset(
             ThingsboardImage.thingsBoardWithTitle,
-            height: 30,
+            height: 40,
             colorFilter: Utils.toColorFilter(theme.primaryColor),
+          ),
+          const SizedBox(width: 10),
+          Text(
+            'AgriPulse',
+            style: TextStyle(
+              fontSize: 26,
+              fontWeight: FontWeight.w800,
+              letterSpacing: -0.5,
+              color: theme.primaryColor,
+            ),
           ),
         ],
       ),
