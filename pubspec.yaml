@@ -1,5 +1,5 @@
-name: thingsboard_app
-description: Flutter ThingsBoard Mobile Application
+name: agripulse_app
+description: Flutter AgriPulse Mobile Application
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
