@@ -61,30 +61,46 @@ class Login extends _$Login {
       );
       return;
     }
-    await _onFullyLoggedIn();
+    try {
+      await _onFullyLoggedIn();
+    } catch (e) {
+      // Surface post-login failures instead of leaving the user stuck
+      // on the login screen with no feedback.
+      log('handleUserLoaded error: $e');
+      _overlayService.showErrorNotification(
+        (_) => 'Could not load your account: $e',
+      );
+    }
   }
 
   Future<bool> login(String email, String password) async {
-    try {
-      final res = await _tbClient.login(LoginRequest(email, password));
-      final user = _tbClient.getAuthUser();
-      if (user != null &&
-          (user.isMfaConfigurationToken() || user.isPreVerificationToken())) {
-        return false;
-      }
-    } catch (e) {
+    // NOTE: no try/catch here on purpose — real errors must reach the
+    // login widget so they can be shown to the user (silent-login-failure fix).
+    await _tbClient.login(LoginRequest(email, password));
+    final user = _tbClient.getAuthUser();
+    if (user != null &&
+        (user.isMfaConfigurationToken() || user.isPreVerificationToken())) {
       return false;
     }
     return true;
   }
 
   Future<void> loadUser() async {
-    final mobileInfo = await _tbClient.getMobileService().getUserMobileInfo(
-      MobileInfoQuery(
-        platformType: _deviceInfoService.getPlatformType(),
-        packageName: _deviceInfoService.getApplicationId(),
-      ),
-    );
+    MobileBasicInfo? mobileInfo;
+    try {
+      mobileInfo = await _tbClient.getMobileService().getUserMobileInfo(
+        MobileInfoQuery(
+          platformType: _deviceInfoService.getPlatformType(),
+          packageName: _deviceInfoService.getApplicationId(),
+        ),
+      );
+    } catch (e) {
+      // The app may not be fully configured in TB Mobile Center
+      // (e.g. Draft state / no bundle on the free tier). That must not
+      // block login — fall back to the default navigation layout.
+      log('getUserMobileInfo failed (using defaults): $e');
+      mobileInfo = null;
+    }
 
     final userInfo = await _tbClient.getUserService().getUser();
     final lang = userInfo.additionalInfo?['lang'];

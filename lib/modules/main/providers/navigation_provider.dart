@@ -46,17 +46,20 @@ class Navigation extends _$Navigation {
       _orientationSubscription.cancel();
       _loginSub.close();
     });
-    if (!login.isUserLoaded || login.mobileLoginInfo == null) {
+    if (!login.isUserLoaded || login.userScope == null) {
       return const NavigationState(bottomBarPages: [], morePages: []);
     }
+    _cachePageLayouts(login.mobileLoginInfo?.pages, authority: login.userScope!);
     return _getPages(_pagesLayout);
   }
 
   void onLoggedIn() {
     final login = ref.read(loginProvider);
-    if (login.mobileLoginInfo != null && login.userScope != null) {
+    // mobileLoginInfo may be null when the app is not fully configured in
+    // TB Mobile Center (free tier) — fall back to default pages by authority.
+    if (login.isUserLoaded && login.userScope != null) {
       _cachePageLayouts(
-        login.mobileLoginInfo!.pages,
+        login.mobileLoginInfo?.pages,
         authority: login.userScope!,
       );
       updatePages();

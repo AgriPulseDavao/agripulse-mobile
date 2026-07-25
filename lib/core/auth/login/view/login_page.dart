@@ -43,6 +43,12 @@ class LoginPage extends HookConsumerWidget {
     final client = getIt<ITbClientService>().client;
     final user = client.getAuthUser();
 
+    if (user == null) {
+      // No stored auth (or it was cleared after a failed refresh) —
+      // never leave the blocking loader up over the login form.
+      isUserLoading.value = false;
+      return;
+    }
     if (user != null &&
         (!user.isMfaConfigurationToken() || !user.isPreVerificationToken())) {
       isUserLoading.value = true;

@@ -196,10 +196,23 @@ Future<void> onLoginPressed(
   try {
     loading.value = true;
   final res =   await ref.read(loginProvider.notifier).login(username, password);
-    
+
     loading.value = res;
   } catch (e) {
+    // Silent-login-failure fix: stop the loader and show the real error.
+    loading.value = false;
     form.setErrors({"err": {}});
+    if (context.mounted) {
+      final message =
+          e is ThingsboardError ? (e.message ?? e.toString()) : e.toString();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Login failed: $message'),
+          duration: const Duration(seconds: 8),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
   }
 }
 
