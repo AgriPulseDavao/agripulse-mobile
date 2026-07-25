@@ -1,5 +1,5 @@
 {
-  "appTitle": "ThingsBoard",
+  "appTitle": "AgriPulse",
   "home": "Αρχική",
   "devices": "{count, plural, =1{Συσκευή} other{Συσκευές}}",
   "@devices": {
@@ -15,7 +15,7 @@
   "auditLogs": "Αρχεία καταγραφής ελέγχου",
   "logout": "Αποσύνδεση",
   "login": "Σύνδεση",
-  "logoDefaultValue": "Λογότυπο ThingsBoard",
+  "logoDefaultValue": "Λογότυπο AgriPulse",
   "loginToYourAccount": "Συνδεθείτε στον λογαριασμό σας",
   "email": "Email",
   "emailRequireText": "Το email είναι υποχρεωτικό.",

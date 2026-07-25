@@ -264,7 +264,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "apiUsageState": MessageLookupByLibrary.simpleMessage(
       "Estado de uso de API",
     ),
-    "appTitle": MessageLookupByLibrary.simpleMessage("ThingsBoard"),
+    "appTitle": MessageLookupByLibrary.simpleMessage("AgriPulse"),
     "applyChanges": MessageLookupByLibrary.simpleMessage("Aplicar cambios"),
     "areYouSure": MessageLookupByLibrary.simpleMessage("¿Estás seguro?"),
     "areYouSureYouWantToDeactivate": m3,
@@ -515,7 +515,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "loginWith": MessageLookupByLibrary.simpleMessage("Iniciar sesión con"),
     "logoDefaultValue": MessageLookupByLibrary.simpleMessage(
-      "Logotipo de ThingsBoard",
+      "Logotipo de AgriPulse",
     ),
     "logout": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
     "major": MessageLookupByLibrary.simpleMessage("Mayor"),

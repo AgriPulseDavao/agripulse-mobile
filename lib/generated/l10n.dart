@@ -54,9 +54,9 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `ThingsBoard`
+  /// `AgriPulse`
   String get appTitle {
-    return Intl.message('ThingsBoard', name: 'appTitle', desc: '', args: []);
+    return Intl.message('AgriPulse', name: 'appTitle', desc: '', args: []);
   }
 
   /// `Home`
@@ -161,10 +161,10 @@ class S {
     return Intl.message('Log In', name: 'login', desc: '', args: []);
   }
 
-  /// `ThingsBoard Logo`
+  /// `AgriPulse Logo`
   String get logoDefaultValue {
     return Intl.message(
-      'ThingsBoard Logo',
+      'AgriPulse Logo',
       name: 'logoDefaultValue',
       desc: '',
       args: [],

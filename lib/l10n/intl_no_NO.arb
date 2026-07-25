@@ -1,5 +1,5 @@
 {
-  "appTitle": "ThingsBoard",
+  "appTitle": "AgriPulse",
   "home": "Hjem",
   "devices": "{count, plural, =1{Enhet} other{Enheter}}",
   "@devices": {
@@ -15,7 +15,7 @@
   "auditLogs": "Revisjonslogger",
   "logout": "Logg ut",
   "login": "Logg inn",
-  "logoDefaultValue": "ThingsBoard-logo",
+  "logoDefaultValue": "AgriPulse-logo",
   "loginToYourAccount": "Logg inn på kontoen din",
   "email": "E-post",
   "emailRequireText": "E-post er påkrevd.",

@@ -257,7 +257,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "anyType": MessageLookupByLibrary.simpleMessage("Beliebiger Typ"),
     "apiKey": MessageLookupByLibrary.simpleMessage("API-Schlüssel"),
     "apiUsageState": MessageLookupByLibrary.simpleMessage("API-Nutzungsstatus"),
-    "appTitle": MessageLookupByLibrary.simpleMessage("ThingsBoard"),
+    "appTitle": MessageLookupByLibrary.simpleMessage("AgriPulse"),
     "applyChanges": MessageLookupByLibrary.simpleMessage(
       "Änderungen übernehmen",
     ),
@@ -502,7 +502,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "loginWith": MessageLookupByLibrary.simpleMessage("Anmelden mit"),
     "logoDefaultValue": MessageLookupByLibrary.simpleMessage(
-      "ThingsBoard-Logo",
+      "AgriPulse-Logo",
     ),
     "logout": MessageLookupByLibrary.simpleMessage("Abmelden"),
     "major": MessageLookupByLibrary.simpleMessage("Schwerwiegend"),

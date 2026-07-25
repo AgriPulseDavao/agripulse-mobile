@@ -1,5 +1,5 @@
 {
-  "appTitle": "ThingsBoard",
+  "appTitle": "AgriPulse",
   "home": "الرئيسية",
   "devices": "{count, plural, =1{جهاز} other{أجهزة}}",
   "@devices": {

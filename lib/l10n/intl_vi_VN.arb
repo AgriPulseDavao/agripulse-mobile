@@ -1,5 +1,5 @@
 {
-  "appTitle": "ThingsBoard",
+  "appTitle": "AgriPulse",
   "home": "Trang chủ",
   "devices": "{count, plural, =1{Thiết bị} other{Thiết bị}}",
   "@devices": {
@@ -15,7 +15,7 @@
   "auditLogs": "Nhật ký kiểm toán",
   "logout": "Đăng xuất",
   "login": "Đăng nhập",
-  "logoDefaultValue": "Logo ThingsBoard",
+  "logoDefaultValue": "Logo AgriPulse",
   "loginToYourAccount": "Đăng nhập vào tài khoản của bạn",
   "email": "Email",
   "emailRequireText": "Vui lòng nhập email.",

@@ -1,5 +1,5 @@
 {
-  "appTitle": "ThingsBoard",
+  "appTitle": "AgriPulse",
   "home": "Inicio",
   "devices": "{count, plural, =1{Dispositivo} other{Dispositivos}}",
   "@devices": {
@@ -15,7 +15,7 @@
   "auditLogs": "Registros de auditoría",
   "logout": "Cerrar sesión",
   "login": "Iniciar sesión",
-  "logoDefaultValue": "Logotipo de ThingsBoard",
+  "logoDefaultValue": "Logotipo de AgriPulse",
   "loginToYourAccount": "Inicia sesión en tu cuenta",
   "email": "Correo electrónico",
   "emailRequireText": "El correo electrónico es obligatorio.",

@@ -255,7 +255,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "anyType": MessageLookupByLibrary.simpleMessage("Elk type"),
     "apiKey": MessageLookupByLibrary.simpleMessage("API-sleutel"),
     "apiUsageState": MessageLookupByLibrary.simpleMessage("API-gebruiksstatus"),
-    "appTitle": MessageLookupByLibrary.simpleMessage("ThingsBoard"),
+    "appTitle": MessageLookupByLibrary.simpleMessage("AgriPulse"),
     "applyChanges": MessageLookupByLibrary.simpleMessage(
       "Wijzigingen toepassen",
     ),
@@ -502,7 +502,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "loginWith": MessageLookupByLibrary.simpleMessage("Inloggen met"),
     "logoDefaultValue": MessageLookupByLibrary.simpleMessage(
-      "ThingsBoard-logo",
+      "AgriPulse-logo",
     ),
     "logout": MessageLookupByLibrary.simpleMessage("Uitloggen"),
     "major": MessageLookupByLibrary.simpleMessage("Ernstig"),
