@@ -12,8 +12,6 @@ import 'package:thingsboard_app/core/auth/login/provider/oauth_provider.dart';
 import 'package:thingsboard_app/core/auth/login/widgets/footer/login_footer.dart';
 import 'package:thingsboard_app/core/auth/login/widgets/full_screen_loader.dart';
 import 'package:thingsboard_app/core/auth/login/widgets/header/login_header.dart';
-import 'package:thingsboard_app/core/auth/login/widgets/o_auth_buttons.dart';
-import 'package:thingsboard_app/core/auth/login/widgets/text_divider.dart';
 import 'package:thingsboard_app/core/auth/login/widgets/text_field.dart';
 import 'package:thingsboard_app/core/logger/tb_logger.dart';
 import 'package:thingsboard_app/generated/l10n.dart';
@@ -63,65 +61,65 @@ class LoginWidget extends HookConsumerWidget {
                       const LoginHeader(),
                       Text(
                         S.of(context).loginToYourAccount,
-                        style: TbTextStyles.titleMedium,
+                        style: TbTextStyles.titleMedium.copyWith(
+                          color: Colors.white,
+                        ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 32),
+                        padding: const EdgeInsets.only(top: 24),
                         child: AutofillGroup(
-                          child: Column(
-                            spacing: 12,
-                            children: [
-                              Text(
-                                S.of(context).loginWith.toUpperCase(),
-                                style: TbTextStyles.labelMedium.copyWith(
-                                  fontWeight: FontWeight.w400,
-                                  fontFamily: 'Roboto',
-                                  letterSpacing: 0.4,
+                          child: Container(
+                            padding: const EdgeInsets.fromLTRB(16, 24, 16, 8),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(18),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withAlpha(46),
+                                  blurRadius: 24,
+                                  offset: const Offset(0, 10),
                                 ),
-                              ),
-                              OAuthButtons(
-                                onButtonPressed:
-                                    (client) => onOauth2ButtonPressed(
-                                      client,
-                                      context,
-                                      loading,
-                                      ref,
+                              ],
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Column(
+                                  spacing: 24,
+                                  children: [
+                                    TbTextField(
+                                      formControlName: "email",
+                                      label: S.of(context).email,
+                                      hint: S.of(context).email,
+                                      autoFillHints: const [
+                                        AutofillHints.email,
+                                      ],
                                     ),
-                                clients: providers.value?.oAuth2Clients ?? [],
-                              ),
-                              TextDivider(text: S.of(context).or),
-
-                              Column(
-                                spacing: 24,
-                                children: [
-                                  TbTextField(
-                                    formControlName: "email",
-                                    label: S.of(context).email,
-                                    hint: S.of(context).email,
-                                    autoFillHints: const [AutofillHints.email],
-                                  ),
-                                  TbTextField(
-                                    formControlName: "password",
-                                    label: S.of(context).password,
-                                    hint: S.of(context).password,
-                                    obscureText: true,
-                                    autoFillHints: const [
-                                      AutofillHints.password,
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: TextButton(
-                                  onPressed: () => onForgotPassword(context),
-                                  child: Text(
-                                    S.of(context).passwordForgotText,
-                                    style: TbTextStyles.labelSmall,
+                                    TbTextField(
+                                      formControlName: "password",
+                                      label: S.of(context).password,
+                                      hint: S.of(context).password,
+                                      obscureText: true,
+                                      autoFillHints: const [
+                                        AutofillHints.password,
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: TextButton(
+                                    onPressed: () => onForgotPassword(context),
+                                    child: Text(
+                                      S.of(context).passwordForgotText,
+                                      style: TbTextStyles.labelSmall.copyWith(
+                                        color: AgriPulseBrand.green,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -136,8 +134,15 @@ class LoginWidget extends HookConsumerWidget {
                                   width: double.infinity,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
+                                      backgroundColor: AgriPulseBrand.green,
+                                      foregroundColor: Colors.white,
+                                      disabledBackgroundColor: AgriPulseBrand
+                                          .green
+                                          .withAlpha(110),
+                                      disabledForegroundColor: Colors.white70,
+                                      shape: const StadiumBorder(),
                                       padding: const EdgeInsets.symmetric(
-                                        vertical: 12,
+                                        vertical: 14,
                                       ),
                                     ),
                                     onPressed:
@@ -153,7 +158,10 @@ class LoginWidget extends HookConsumerWidget {
                                             },
                                     child: Text(
                                       S.of(context).login,
-                                      style: TbTextStyles.labelMedium,
+                                      style: TbTextStyles.labelMedium.copyWith(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w700,
+                                      ),
                                     ),
                                   ),
                                 ),

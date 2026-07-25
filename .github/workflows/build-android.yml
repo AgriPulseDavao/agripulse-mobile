@@ -39,6 +39,9 @@ jobs:
       - name: Generate launcher icons from AgriPulse PNGs
         run: dart run flutter_launcher_icons || true
 
+      - name: Generate native splash screen (AgriPulse mark on navy)
+        run: dart run flutter_native_splash:create || true
+
       - name: Build debug APK
         run: |
           flutter build apk --debug             --dart-define=thingsboardApiEndpoint=https://thingsboard.cloud             --dart-define=androidApplicationName=AgriPulse             --dart-define=androidApplicationId=ph.agripulse.davao             --dart-define=thingsboardOAuth2CallbackUrlScheme=ph.agripulse.davao.auth             --dart-define=appLinksUrlHost=thingsboard.cloud

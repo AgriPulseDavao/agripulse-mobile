@@ -1,4 +1,5 @@
 abstract class ThingsboardImage {
+  static const agriPulseMark = 'assets/images/agripulse_mark.svg';
   static const thingsBoardWithTitle =
       'assets/images/thingsboard_with_title.svg';
   static const thingsboard = 'assets/images/thingsboard.svg';

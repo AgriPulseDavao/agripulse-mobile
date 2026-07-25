@@ -28,16 +28,25 @@ class DashboardsAppbar extends StatelessWidget {
             leading,
         elevation: dashboardState ? 0 : 8,
         title: Center(
-          child: SizedBox(
-            height: 24,
-            child: SvgPicture.asset(
-              ThingsboardImage.thingsBoardWithTitle,
-              colorFilter: ColorFilter.mode(
-                Theme.of(context).primaryColor,
-                BlendMode.srcIn,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SvgPicture.asset(
+                ThingsboardImage.agriPulseMark,
+                height: 24,
+                semanticsLabel: 'AgriPulse Logo',
               ),
-              semanticsLabel: 'AgriPulse Logo',
-            ),
+              const SizedBox(width: 8),
+              const Text(
+                'AgriPulse',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: -0.2,
+                  color: Color(0xFF0B3549),
+                ),
+              ),
+            ],
           ),
         ),
         actions: [

@@ -5,6 +5,7 @@ import 'package:thingsboard_app/core/auth/login/di/login_di.dart';
 import 'package:thingsboard_app/core/auth/login/models/login_state.dart';
 import 'package:thingsboard_app/core/auth/login/provider/login_provider.dart';
 import 'package:thingsboard_app/core/auth/login/widgets/full_screen_loader.dart';
+import 'package:thingsboard_app/core/auth/login/widgets/header/login_header.dart';
 import 'package:thingsboard_app/core/auth/login/widgets/login_page_background.dart';
 import 'package:thingsboard_app/core/auth/login/widgets/login_widget.dart';
 import 'package:thingsboard_app/locator.dart';
@@ -26,6 +27,7 @@ class LoginPage extends HookConsumerWidget {
       handleUserLoading(loginState, isUserLoading);
     }, [loginState]);
     return Scaffold(
+      backgroundColor: AgriPulseBrand.navy,
       body: Stack(
         children: [
           const LoginPageBackground(),
