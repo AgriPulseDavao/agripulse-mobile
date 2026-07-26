@@ -20,8 +20,11 @@ class TbProgressIndicator extends ProgressIndicator {
   @override
   State<StatefulWidget> createState() => _TbProgressIndicatorState();
 
+  /// AgriPulse brand green — the spinner arc color (matches agripulse.ph).
+  static const Color _brandGreen = Color(0xFF2FBF71);
+
   Color _getValueColor(BuildContext context) =>
-      valueColor?.value ?? Theme.of(context).primaryColor;
+      valueColor?.value ?? _brandGreen;
 }
 
 class _TbProgressIndicatorState extends State<TbProgressIndicator>
@@ -55,36 +58,39 @@ class _TbProgressIndicatorState extends State<TbProgressIndicator>
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SvgPicture.asset(
-          ThingsboardImage.thingsboardCenter,
-          height: widget.size,
-          width: widget.size,
-          colorFilter: ColorFilter.mode(
-            widget._getValueColor(context),
-            BlendMode.srcIn,
+    return SizedBox(
+      height: widget.size,
+      width: widget.size,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          // Full-color AgriPulse leaf mark (no tint) in the center.
+          SvgPicture.asset(
+            ThingsboardImage.agriPulseMark,
+            height: widget.size * 0.68,
+            width: widget.size * 0.68,
           ),
-        ),
-        AnimatedBuilder(
-          animation: _rotation,
-          child: SvgPicture.asset(
-            ThingsboardImage.thingsboardOuter,
-            height: widget.size,
-            width: widget.size,
-            colorFilter: ColorFilter.mode(
-              widget._getValueColor(context),
-              BlendMode.srcIn,
+          // Brand-green arc spinning around it.
+          AnimatedBuilder(
+            animation: _rotation,
+            child: SvgPicture.asset(
+              ThingsboardImage.thingsboardOuter,
+              height: widget.size,
+              width: widget.size,
+              colorFilter: ColorFilter.mode(
+                widget._getValueColor(context),
+                BlendMode.srcIn,
+              ),
             ),
+            builder: (BuildContext context, Widget? child) {
+              return Transform.rotate(
+                angle: _rotation.value * pi * 2,
+                child: child,
+              );
+            },
           ),
-          builder: (BuildContext context, Widget? child) {
-            return Transform.rotate(
-              angle: _rotation.value * pi * 2,
-              child: child,
-            );
-          },
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
