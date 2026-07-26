@@ -6,6 +6,17 @@ class EndpointNameWidget extends StatelessWidget {
 
   final String endpoint;
 
+  /// Brand-friendly label: our production backend shows as "AgriPulse Cloud"
+  /// instead of the raw vendor hostname; any other endpoint (e.g. a future
+  /// self-hosted server) still shows its real host for clarity.
+  static String _displayName(String endpoint) {
+    final host = Uri.parse(endpoint).host;
+    if (host == 'thingsboard.cloud' || host.endsWith('.thingsboard.cloud')) {
+      return 'AgriPulse Cloud';
+    }
+    return host;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,7 +27,7 @@ class EndpointNameWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
       child: Center(
         child: Text(
-          Uri.parse(endpoint).host,
+          _displayName(endpoint),
           style: TbTextStyles.bodySmall.copyWith(
             color: Theme.of(context).primaryColor,
           ),
