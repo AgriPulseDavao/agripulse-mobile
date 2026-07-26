@@ -134,6 +134,9 @@ class _DashboardState extends State<DashboardWidget> {
             if (webViewLoading) {
               webViewLoading = false;
             }
+            // AgriPulse: hide the web UI's "Powered by ThingsBoard vX" footer
+            // inside the embedded dashboard (cosmetic, in-app only).
+            controller.evaluateJavascript(source: kAgriPulseWebCleanupJs);
           },
           onReceivedHttpError: (ctrl, req, errResponse) {
             log.debug(
@@ -357,3 +360,35 @@ class _DashboardState extends State<DashboardWidget> {
     );
   }
 }
+
+/// Injected into the embedded ThingsBoard web dashboard to hide its
+/// "Powered by ThingsBoard vX" footer link. Style tag survives SPA route
+/// changes; a throttled MutationObserver catches late-rendered footers.
+const String kAgriPulseWebCleanupJs = '''
+(function() {
+  if (window.__agripulseCleanup) return;
+  window.__agripulseCleanup = true;
+  var style = document.createElement('style');
+  style.textContent =
+    'a[href*="thingsboard.io"], .tb-powered-by, [class*="powered-by"] { display: none !important; }';
+  (document.head || document.documentElement).appendChild(style);
+  function hide(root) {
+    try {
+      root.querySelectorAll('a,span,div,footer,p').forEach(function(e) {
+        if (e.childElementCount === 0 && /powered by/i.test(e.textContent || '')) {
+          var t = e.closest('a') || e;
+          t.style.setProperty('display', 'none', 'important');
+        }
+      });
+    } catch (err) {}
+  }
+  hide(document);
+  var last = 0;
+  new MutationObserver(function() {
+    var now = Date.now();
+    if (now - last < 1500) return;
+    last = now;
+    hide(document);
+  }).observe(document.documentElement, { childList: true, subtree: true });
+})();
+''';
