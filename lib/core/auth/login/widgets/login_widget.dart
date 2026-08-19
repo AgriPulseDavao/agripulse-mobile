@@ -106,18 +106,7 @@ class LoginWidget extends HookConsumerWidget {
                                     ),
                                   ],
                                 ),
-                                Align(
-                                  alignment: Alignment.centerRight,
-                                  child: TextButton(
-                                    onPressed: () => onForgotPassword(context),
-                                    child: Text(
-                                      S.of(context).passwordForgotText,
-                                      style: TbTextStyles.labelSmall.copyWith(
-                                        color: AgriPulseBrand.green,
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                                // Forgot-password removed for coop users (19 Aug 2026)
                               ],
                             ),
                           ),
