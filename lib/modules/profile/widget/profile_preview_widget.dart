@@ -112,57 +112,7 @@ class ProfilePreviewWidget extends HookConsumerWidget {
                           .toList(),
                 ),
 
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    spacing: 16,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(S.of(context).security, style: TbTextStyles.titleXs),
-                      Column(
-                        spacing: 8,
-                        children: [
-                          OutlinedButton(
-                            onPressed: () {
-                              context.push(
-                                "${LoginRoutes.login}${LoginRoutes.mfaConfigure}",
-                              );
-                            },
-                            child: Row(
-                              spacing: 4,
-
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Icon(Icons.key),
-                                Text(
-                                  S.of(context).twofactorAuthentication,
-                                  style: TbTextStyles.labelMedium,
-                                ),
-                              ],
-                            ),
-                          ),
-                          OutlinedButton(
-                            onPressed: () {
-                              _changePassword(context);
-                            },
-                            child: Row(
-                              spacing: 4,
-
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Icon(Icons.sync_lock),
-                                Text(
-                                  S.of(context).changePassword,
-                                  style: TbTextStyles.labelMedium,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+                // Security section (2FA + change password) removed for coop users (19 Aug 2026)
                 // Commented out for CE app, uncoment this code if you need this feature
                 // for your users
                 // if (user.authority != Authority.SYS_ADMIN)
